@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "480817577212",
+    "project_id": "el-puppy-a2e3c",
+    "storage_bucket": "el-puppy-a2e3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480817577212:android:81e7242f9d416e15ad6b79",
+        "android_client_info": {
+          "package_name": "com.example.tubes_abp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480817577212-nbjiqps6ud5ihb631kqf86ukrp2lf282.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw1RyMQ4diEbZVFAKaQXRn-OwZKOgIkus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480817577212-nbjiqps6ud5ihb631kqf86ukrp2lf282.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
