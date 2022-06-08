@@ -1,13 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tubes_abp/Page/alamat.dart';
-import 'package:tubes_abp/Page/login.dart';
 import 'package:tubes_abp/Page/on_boarding.dart';
-import 'package:tubes_abp/Page/register.dart';
-import 'package:tubes_abp/Widget/RattingDanUlasan.dart';
-import 'package:tubes_abp/tabBar/BarHome.dart';
-import 'package:tubes_abp/tabBar/BarAccount.dart';
+import 'package:tubes_abp/tabBar/bar_home.dart';
+import 'package:tubes_abp/tabBar/bar_account.dart';
+import '../theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -40,8 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    BarHome(
-    ),
+    BarHome(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -50,8 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'Index 2: School',
       style: optionStyle,
     ),
-    BarAccount(
-    ),
+    BarAccount(),
   ];
 
   void _onItemTapped(int index) {
@@ -83,6 +81,41 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       drawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 175,
+              color: Colors.grey[200],
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                    Navigator.push(  
+                        context,  
+                        MaterialPageRoute(builder: (context) => BarAccount()),  
+                      );
+                  },
+                  child: CircleAvatar(
+                    radius: 40.0,
+                    backgroundImage: AssetImage('assets/Profile.jpeg'),
+                  ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Amanda Haira',
+                    style: blackTextStyle.copyWith(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w100,
+                  ),
+                  ),
+                ],
+              ),
+            ),
+          ]
+          ),
               ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -107,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Account',
           ),
         ],
-        currentIndex: _selectedIndex,
+        currentIndex:  _selectedIndex,
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ), // This trailing comma makes auto-formatting nicer for build methods.

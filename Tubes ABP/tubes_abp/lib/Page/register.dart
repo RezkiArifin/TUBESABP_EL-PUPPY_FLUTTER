@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tubes_abp/Page/login.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -111,7 +112,10 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     onPressed: () {
-                      //signup screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Login()),
+                      );
                     },
                   )
                 ],

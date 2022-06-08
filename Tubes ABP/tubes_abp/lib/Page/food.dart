@@ -83,7 +83,7 @@ class FoodPages extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
                 child: Text(
-                  "Pada proses grooming ini, seluruh badan hewan peliharaan anda akan dibasahi dengan air hangat secara merata.",
+                  "WHISKAS makanan kucing lengkap dan seimbang, dirancang khusus untuk memenuhi kebutuhan kucing Anda pada tahap kehidupan mereka.",
                   style: deskripsi,
                 ),
               ),

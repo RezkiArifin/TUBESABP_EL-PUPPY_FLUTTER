@@ -30,7 +30,7 @@ class Onboarding extends StatelessWidget {
                       height: 190,
                     ),
                     Image(
-                      image: AssetImage('kitty2.png'),
+                      image: AssetImage('assets/kitty2.png'),
                       height: 160,
                       width: 160,
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tubes_abp/Page/register.dart';
 import 'package:tubes_abp/main.dart';
 
 class Login extends StatefulWidget {
@@ -23,7 +24,7 @@ class _LoginState extends State<Login> {
                 height: 83,
               ),
               Image(
-                image: AssetImage('elpuppy.png'),
+                image: AssetImage('assets/elpuppy.png'),
                 height: 248,
                 width: 242,
                 ),
@@ -87,7 +88,10 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     onPressed: () {
-                      //signup screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Register()),
+                      );
                     },
                   )
                 ],
