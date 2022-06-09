@@ -23,7 +23,7 @@ class _RegisterState extends State<Register> {
                 height: 35,
               ),
               Image(
-                image: AssetImage('elpuppy.png'),
+                image: AssetImage('assets/elpuppy.png'),
                 height: 248,
                 width: 242,
                 ),
