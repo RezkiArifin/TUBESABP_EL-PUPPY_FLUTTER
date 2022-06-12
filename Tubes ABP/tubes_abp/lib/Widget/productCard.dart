@@ -27,6 +27,10 @@ class ProductCard extends StatelessWidget {
           );
       }, // Handle your callback
       child: Ink(
+        padding: EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 5,
+        ),
         height: 200,
         width: 144,
         decoration: const BoxDecoration(
@@ -42,10 +46,13 @@ class ProductCard extends StatelessWidget {
             ],
         ),
         child: Column(
+          
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Image.asset(product.imageUrl),
+            Expanded(
+              child: Center(
+                child: Image.asset(product.imageUrl),
+              ),
             ),
             Center(
               child: SizedBox(

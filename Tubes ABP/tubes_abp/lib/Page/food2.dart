@@ -29,7 +29,7 @@ class FoodPages2 extends StatelessWidget {
                 height: 180,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage('food2.png'), fit: BoxFit.cover)
+                  image: DecorationImage(image: AssetImage('assets/food2.png'), fit: BoxFit.cover)
                 ),
               ),
               Padding(

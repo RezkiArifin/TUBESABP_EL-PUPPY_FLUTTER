@@ -29,7 +29,7 @@ class FoodPages extends StatelessWidget {
                 height: 180,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage('food1.png'), fit: BoxFit.cover)
+                  image: DecorationImage(image: AssetImage('assets/food1.png'), fit: BoxFit.cover)
                 ),
               ),
               Padding(
@@ -95,80 +95,85 @@ class FoodPages extends StatelessWidget {
                   ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 12, 20, 26),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 8
+                ),
                 child: Container(
-                  height: 114,
+                  height: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height/3),
                   width: 360,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.white70,
                     // border: Border.all(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.all(Radius.circular(12)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 0,
-                        blurRadius: 6,
-                        offset: Offset(2, 4), 
-                      ),
-                    ],
+                    
                   ),
                   child: ListView(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 4,
+                    ),
                     children: [
-                      RattingDanUlasan()
+                      RattingDanUlasan(),
+                      RattingDanUlasan(),
+                      RattingDanUlasan(),
+                      RattingDanUlasan(),
+                      RattingDanUlasan(),
+                      RattingDanUlasan(),
+                      RattingDanUlasan(),
+
                     ],
                   ),
                 ),
               ),
-              Divider(color: Color(0xfffBBBBBB),
-              thickness: 1,
-              ),
-              Container(
-                height: 72,
-                width: double.infinity,
-                decoration: BoxDecoration(color: Colors.white),
-                child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 12, 0, 4),
-                        child: Text(
-                          "Total Harga",
-                          style: rating,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(18, 0, 0, 12),
-                        child: Text(
-                          "RP 30.000",
-                          style: TotalHarga,
-                        ),
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: ElevatedButton(onPressed: () {
-                      Navigator.push(  
-                        context,  
-                        MaterialPageRoute(builder: (context) => Alamat()),  
-                      );
-                    }, 
-                    child: Text(
-                      "Order",
-                      style: OrderButton,
-                      ), 
-                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color(0xfffE5561C)
-                    )),
-                    ),
-                  ),
-                ],
-              ),
-              ),
+              // Divider(color: Color(0xfffBBBBBB),
+              // thickness: 1,
+              // ),
             ],
           ),
         ),
+
+      persistentFooterButtons: [
+        Container(
+          padding: EdgeInsets.all(8),
+          margin: EdgeInsets.zero,
+          height: 70,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(color: Colors.white),
+          child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Total Harga",
+                  style: rating,
+                ),
+                Text(
+                  "RP 30.000",
+                  style: TotalHarga,
+                )
+              ],
+            ),
+            ElevatedButton(onPressed: () {
+              Navigator.push(  
+                context,  
+                MaterialPageRoute(builder: (context) => Alamat()),  
+              );
+            }, 
+            child: Text(
+              "Order",
+              style: OrderButton,
+              ), 
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color(0xfffE5561C)
+            )),
+            ),
+          ],
+        ),
+        ),
+      ],
+      
     );
   }
 }

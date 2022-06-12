@@ -7,6 +7,22 @@ class RattingDanUlasan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(5),
+      width: double.infinity,
+
+      decoration: BoxDecoration(
+        color: Colors.white,
+        // border: Border.all(width: 1, color: Colors.black),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 0,
+            blurRadius: 6,
+            offset: Offset(2, 4), 
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: Column(
@@ -18,7 +34,7 @@ class RattingDanUlasan extends StatelessWidget {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage('bilal.png'),
+                      backgroundImage: AssetImage('assets/bilal.png'),
                       radius: 25,
                     ),
                     SizedBox(
