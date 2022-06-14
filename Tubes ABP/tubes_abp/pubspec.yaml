@@ -37,6 +37,8 @@ dependencies:
   money_formatter: ^0.0.3
   intl: ^0.17.0
   layout_grid: ^1.0.1
+  http: ^0.13.4
+  provider: ^6.0.3
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 
