@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tubes_abp/Page/grooming.dart';
 import 'package:tubes_abp/model/Category.dart';
 
-import '../Page/shop.dart';
-
-class CategoryCard extends StatelessWidget {
+class CategoryCardGrooming extends StatelessWidget {
   // const CategoryCard({Key? key}) : super(key: key);
 
   // memanggil model Category
   final Category category;
-  const CategoryCard(this.category);
+  const CategoryCardGrooming(this.category);
 
 
   @override
@@ -17,7 +16,7 @@ class CategoryCard extends StatelessWidget {
       onTap: (){
         Navigator.push(  
             context,  
-            MaterialPageRoute(builder: (context) => const ShopPage(),  
+            MaterialPageRoute(builder: (context) => const Grooming(),  
             ),
           );
       }, // Handle your callback

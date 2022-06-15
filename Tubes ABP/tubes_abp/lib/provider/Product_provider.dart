@@ -8,7 +8,7 @@ import 'package:tubes_abp/model/product.dart';
 class ProductProvider extends ChangeNotifier{
   getProductList() async {
     // var result = await http.get(Uri.parse('linkAPI'));
-    var result = await http.get(Uri.parse('linkAPI'));
+    var result = await http.get(Uri.parse('AIzaSyCw1RyMQ4diEbZVFAKaQXRn-OwZKOgIkus'));
 
     print(result.statusCode);
     print(result.body);

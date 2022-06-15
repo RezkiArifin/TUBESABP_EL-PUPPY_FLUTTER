@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:layout_grid/layout_grid.dart';
 import 'package:provider/provider.dart';
-
 import '../Widget/productCard.dart';
 import '../model/product.dart';
 import '../provider/Product_provider.dart';
@@ -11,7 +10,7 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var productProvider = Provider.of<ProductProvider>(context);
+    // var productProvider = Provider.of<ProductProvider>(context);
 
     return Scaffold(
       // backgroundColor: Colors.white,
@@ -44,42 +43,77 @@ class ShopPage extends StatelessWidget {
         ),
         child: OrientationBuilder(
           builder: (context, orientation) {
+            return LayoutGrid.count(
+              crossAxisCount: orientation == Orientation.portrait? 2: 3,
 
-            return FutureBuilder(
-              future: productProvider.getProductList(),
-              builder: (context, snapshot){
-                if (snapshot.hasData){
-                  List <Product> data = snapshot.data as List<Product>;
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4,
 
-                  int index = 0;
-
-                  return LayoutGrid.count(
-                    crossAxisCount: orientation == Orientation.portrait? 2: 3,
-                          
-                    mainAxisSpacing: 4,
-                    crossAxisSpacing: 4,
-                          
-                    children: data.map((item){
-                      index++;
-                      return ProductCard(item);
-                    }).toList()
-
-                    // [
-                      
-                    //   ProductCard( Product(
-                    //     id: 1, 
-                    //     name: 'Whiskas Dry Adult 480 gr', 
-                    //     imageUrl: 'assets/popular1.png', 
-                    //     ratting: 4.8 , 
-                    //     price: 30000
-                    //   )),
-                      
-                    // ],
-                  );
-                }
-                return const Center(child: CircularProgressIndicator(),);
-              },
-            
+              children: [
+                ProductCard( Product(
+                  id: 1, 
+                  name: 'Whiskas Dry Adult 480 gr', 
+                  imageUrl: 'assets/popular1.png', 
+                  ratting: 4.8 , 
+                  price: 30000
+                )),
+                ProductCard( Product(
+                  id: 2, 
+                  name: 'Dog Choize Adult 20 Kg', 
+                  imageUrl: 'assets/popular2.png', 
+                  ratting: 4.6 , 
+                  price: 210000
+                )),
+                ProductCard( Product(
+                  id: 3, 
+                  name: 'Goats Milk Esbilac 340gr', 
+                  imageUrl: 'assets/goatsmilk.png', 
+                  ratting: 4.0 , 
+                  price: 128000
+                )),
+                ProductCard( Product(
+                  id: 1, 
+                  name: 'Whiskas Dry Adult 480 gr', 
+                  imageUrl: 'assets/popular1.png', 
+                  ratting: 4.8 , 
+                  price: 30000
+                )),
+                ProductCard( Product(
+                  id: 2, 
+                  name: 'Dog Choize Adult 20 Kg', 
+                  imageUrl: 'assets/popular2.png', 
+                  ratting: 4.6 , 
+                  price: 210000
+                )),
+                ProductCard( Product(
+                  id: 3, 
+                  name: 'Goats Milk Esbilac 340gr', 
+                  imageUrl: 'assets/goatsmilk.png', 
+                  ratting: 4.0 , 
+                  price: 128000
+                )),
+                ProductCard( Product(
+                  id: 1, 
+                  name: 'Whiskas Dry Adult 480 gr', 
+                  imageUrl: 'assets/popular1.png', 
+                  ratting: 4.8 , 
+                  price: 30000
+                )),
+                ProductCard( Product(
+                  id: 2, 
+                  name: 'Dog Choize Adult 20 Kg', 
+                  imageUrl: 'assets/popular2.png', 
+                  ratting: 4.6 , 
+                  price: 210000
+                )),
+                ProductCard( Product(
+                  id: 3, 
+                  name: 'Goats Milk Esbilac 340gr', 
+                  imageUrl: 'assets/goatsmilk.png', 
+                  ratting: 4.0 , 
+                  price: 128000
+                )),
+              ],
             );
           } ),
         )

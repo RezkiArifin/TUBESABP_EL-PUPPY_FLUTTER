@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tubes_abp/Page/food.dart';
-import 'package:tubes_abp/Page/food2.dart';
-import 'package:tubes_abp/Page/grooming.dart';
 import 'package:tubes_abp/Page/shop.dart';
-import 'package:tubes_abp/Widget/category_card.dart';
+import 'package:tubes_abp/Widget/categor_card_food%20.dart';
+import 'package:tubes_abp/Widget/category_card_grooming.dart';
+import 'package:tubes_abp/Widget/category_card_klinik.dart';
 import 'package:tubes_abp/Widget/discountCard.dart';
 import 'package:tubes_abp/Widget/productCard.dart';
 import 'package:tubes_abp/model/Category.dart';
@@ -74,7 +73,7 @@ class _BarHome extends State<BarHome> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                CategoryCard(Category(
+                CategoryCardFood(Category(
                   id: 1, 
                   name: "Food", 
                   imageIcon: 'assets/tulang.png'
@@ -83,7 +82,7 @@ class _BarHome extends State<BarHome> {
                   width: 10,
                 ),
 
-                CategoryCard(Category(
+                CategoryCardKlinik(Category(
                   id: 2, 
                   name: "Clinic", 
                   imageIcon: 'assets/klinik.png'
@@ -93,7 +92,7 @@ class _BarHome extends State<BarHome> {
                   width: 10,
                 ),
 
-                CategoryCard(Category(
+                CategoryCardGrooming(Category(
                   id: 2, 
                   name: 'Grooming', 
                   imageIcon: 'assets/grooming.png'
@@ -173,7 +172,7 @@ class _BarHome extends State<BarHome> {
                   price: 30000
                 )),
                 const SizedBox(
-                    width: 32,
+                    width: 25,
                 ),
                 ProductCard( Product(
                   id: 2, 
@@ -183,7 +182,7 @@ class _BarHome extends State<BarHome> {
                   price: 210000
                 )),
                 const SizedBox(
-                    width: 32,
+                    width: 25,
                 ),
 
                 ProductCard( Product(
