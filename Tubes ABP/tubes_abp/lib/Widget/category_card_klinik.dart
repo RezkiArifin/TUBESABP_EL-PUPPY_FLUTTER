@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tubes_abp/Page/klinik.dart';
 import 'package:tubes_abp/model/Category.dart';
 
 import '../Page/shop.dart';
@@ -17,7 +18,7 @@ class CategoryCardKlinik extends StatelessWidget {
       onTap: (){
         Navigator.push(  
             context,  
-            MaterialPageRoute(builder: (context) => const ShopPage(),  
+            MaterialPageRoute(builder: (context) => const Klinik(),  
             ),
           );
       }, // Handle your callback

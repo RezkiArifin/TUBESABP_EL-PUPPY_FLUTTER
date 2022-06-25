@@ -3,7 +3,6 @@ import 'package:layout_grid/layout_grid.dart';
 import 'package:provider/provider.dart';
 import '../Widget/productCard.dart';
 import '../model/product.dart';
-import '../provider/Product_provider.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({ Key? key }) : super(key: key);
