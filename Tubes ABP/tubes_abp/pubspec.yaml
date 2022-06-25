@@ -39,6 +39,8 @@ dependencies:
   layout_grid: ^1.0.1
   http: ^0.13.4
   provider: ^6.0.3
+  dio: ^4.0.6
+  cloud_firestore: ^3.1.18
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 

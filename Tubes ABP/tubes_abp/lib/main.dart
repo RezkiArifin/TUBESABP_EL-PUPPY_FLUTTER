@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tubes_abp/Page/on_boarding.dart';
+import 'package:tubes_abp/Page/order.dart';
 import 'package:tubes_abp/tabBar/bar_home.dart';
 import 'package:tubes_abp/tabBar/bar_account.dart';
 import '../theme.dart';

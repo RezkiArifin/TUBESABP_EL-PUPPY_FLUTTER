@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_abp/Page/grooming.dart';
+import 'package:tubes_abp/Page/groomingInfo.dart';
 import 'package:tubes_abp/model/Category.dart';
+import 'package:tubes_abp/model/grooming_model.dart';
+import 'package:tubes_abp/model/products_model.dart';
 
 class CategoryCardGrooming extends StatelessWidget {
   // const CategoryCard({Key? key}) : super(key: key);
@@ -16,7 +19,7 @@ class CategoryCardGrooming extends StatelessWidget {
       onTap: (){
         Navigator.push(  
             context,  
-            MaterialPageRoute(builder: (context) => const Grooming(),  
+            MaterialPageRoute(builder: (context) => Grooming(),  
             ),
           );
       }, // Handle your callback
