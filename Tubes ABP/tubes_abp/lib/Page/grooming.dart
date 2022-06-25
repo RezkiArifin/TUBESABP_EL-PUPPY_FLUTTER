@@ -41,7 +41,12 @@ class _GroomingState extends State<Grooming> {
               return ListTile(
                 leading: Image(image: NetworkImage(groom![index].imageUrl!)),
                 title: Text(groom[index].name!),
+                // subtitle: Text("Deskripsi: ${groom[index].description}", maxLines: 3, overflow: TextOverflow.ellipsis,),
+        
                 subtitle: Text("Harga: ${groom[index].price}"),
+
+            
+            
 
               );
             }, itemCount: groom!.length,);

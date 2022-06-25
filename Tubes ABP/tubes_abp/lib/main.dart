@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:tubes_abp/Page/history.dart';
 import 'package:tubes_abp/Page/on_boarding.dart';
 import 'package:tubes_abp/Page/order.dart';
 import 'package:tubes_abp/tabBar/bar_home.dart';
@@ -42,14 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     BarHome(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    // Text(
+    //   'Index 1: Business',
+    //   style: optionStyle,
+    // ),
+    // Text(
+    //   'Index 2: School',
+    //   style: optionStyle,
+    // ),
+    Products(),
+    History(),
     BarAccount(),
   ];
 
