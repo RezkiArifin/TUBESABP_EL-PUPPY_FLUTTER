@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../theme.dart';
 
@@ -11,19 +12,17 @@ class Alamat extends StatefulWidget {
 }
 
 class AlamatState extends State<Alamat> {
-  final _formKey = GlobalKey<FormState>();
 
-  final myController = TextEditingController();
+  TextEditingController produkController = TextEditingController();
+  TextEditingController telpController = TextEditingController();
+  TextEditingController alamatController = TextEditingController();
+  TextEditingController jumlahController = TextEditingController();
   String dropdownValue = 'pcs';
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is disposed.
-    myController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference orders = firestore.collection('orders');
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
@@ -44,17 +43,35 @@ class AlamatState extends State<Alamat> {
           ), 
         ),
 
-      body: Form(
-        key: _formKey,
-        child: Padding(
+      body: ListView(
+        children:[ Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
           ),
-          child: Column(
-            
+          child: Column(          
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-    
+              const SizedBox(
+                height: 24,
+              ),
+              Text('Nama Produk',
+                style: blackTextStyle.copyWith(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              TextField(
+                textAlign: TextAlign.start,
+                controller: produkController,
+                decoration: InputDecoration(
+                  isDense: true, 
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.multiline,
+              ),
               const SizedBox(
                 height: 24,
               ),
@@ -67,9 +84,8 @@ class AlamatState extends State<Alamat> {
               const SizedBox(
                 height: 16,
               ),
-    
               TextFormField(
-                controller: myController,
+                controller: telpController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                 ),
@@ -84,7 +100,6 @@ class AlamatState extends State<Alamat> {
               const SizedBox(
                 height: 24,
               ),
-    
               Text('Isi Alamat dulu yuk',
                 style: blackTextStyle.copyWith(
                   fontSize: 18,
@@ -95,11 +110,11 @@ class AlamatState extends State<Alamat> {
                 height: 16,
               ),
     
-              const TextField(
-                
+              TextField(
                 minLines: 5,
                 maxLines: 5,
                 textAlign: TextAlign.start,
+                controller: alamatController,
                 decoration: InputDecoration(
                   isDense: true, 
                   border: OutlineInputBorder(),
@@ -124,10 +139,11 @@ class AlamatState extends State<Alamat> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [ 
-                  const SizedBox(
+                   SizedBox(
                     height: 36,
                     width: 74,
                     child: TextField(
+                      controller: jumlahController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "1",
@@ -159,43 +175,32 @@ class AlamatState extends State<Alamat> {
                   ),
                 ],
               ),
-    
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                
-                child: Center(
-                  child: ElevatedButton(
-                    
-                    onPressed: () {
-    
-                      if (_formKey.currentState!.validate()) {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              title : Text('Selamat datang ' + myController.text),
-                            );
-                          },
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                    primary: const Color(0xffE5561C),
-                    fixedSize: const Size(320, 36),
-                    ),
-                    child: const Text('Konfirmasi', 
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-    
-                  ),
-                ),
+              SizedBox(
+                height: 40,
               ),
+              Container(
+                  height: 50,
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: ElevatedButton(
+                    style: TextButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 233, 78, 39)),
+                    child: const Text('Order'),
+                    onPressed: () {
+                      orders.add({
+                        'produk': produkController.text,
+                        'no_telp': telpController.text,
+                        'alamat': alamatController.text,
+                        'jumlah': jumlahController.text,
+                      });
+                      telpController.text = '';
+                      alamatController.text = '';
+                      jumlahController.text = '';
+                    },
+                  )),
             ],
           ),
         ),
+      ],
       ),
     );
   }
