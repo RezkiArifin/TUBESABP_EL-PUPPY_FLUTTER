@@ -1,13 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tubes_abp/Page/alamat.dart';
 import 'package:tubes_abp/Page/history.dart';
 import 'package:tubes_abp/Page/on_boarding.dart';
 import 'package:tubes_abp/Page/order.dart';
+import 'package:tubes_abp/Widget/drawer_widget.dart';
 import 'package:tubes_abp/tabBar/bar_home.dart';
 import 'package:tubes_abp/tabBar/bar_account.dart';
+<<<<<<< Updated upstream
 import 'package:tubes_abp/tabBar/bar_order.dart';
 import '../theme.dart';
+=======
+>>>>>>> Stashed changes
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -87,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+<<<<<<< Updated upstream
       drawer: Drawer(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 80.0, horizontal: 20.0),
@@ -194,6 +198,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+=======
+      drawer: drawerWidget(),
+>>>>>>> Stashed changes
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -224,3 +231,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
