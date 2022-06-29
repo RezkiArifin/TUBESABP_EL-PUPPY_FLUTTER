@@ -4,9 +4,13 @@ import 'package:tubes_abp/Page/history.dart';
 import 'package:tubes_abp/Page/on_boarding.dart';
 import 'package:tubes_abp/Page/order.dart';
 import 'package:tubes_abp/Widget/drawer_widget.dart';
+import 'package:tubes_abp/model/notif_model.dart';
+import 'package:tubes_abp/model/orders_model.dart';
 import 'package:tubes_abp/tabBar/bar_home.dart';
 import 'package:tubes_abp/tabBar/bar_account.dart';
 import 'package:tubes_abp/tabBar/bar_order.dart';
+
+import 'Page/notif.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,16 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     BarHome(),
-    // Text(
-    //   'Index 1: Business',
-    //   style: optionStyle,
-    // ),
-    // Text(
-    //   'Index 2: School',
-    //   style: optionStyle,
-    // ),
     Products(),
-    Order(),
+    Orders(),
     BarAccount(),
   ];
 
@@ -80,9 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         centerTitle: true,
         actions: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(Icons.notifications_active),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Notif()),
+              );
+            },
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Icon(Icons.notifications_active),
+            ),
           ),
         ],
       ),
@@ -117,5 +121,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-

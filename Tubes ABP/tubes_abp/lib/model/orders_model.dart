@@ -1,4 +1,4 @@
-class order {
+class orders {
   String? produk;
   int? no_telp;
   String? jumlah;
@@ -6,7 +6,7 @@ class order {
   Null? createdAt;
   Null? updatedAt;
 
-  order(
+  orders(
       {this.produk,
       this.no_telp,
       this.jumlah,
@@ -14,8 +14,8 @@ class order {
       this.createdAt,
       this.updatedAt});
 
-  factory order.fromJson(dynamic json) {
-    return order(
+  factory orders.fromJson(dynamic json) {
+    return orders(
         produk: json['produk'],
         no_telp: json['no_telp'],
         jumlah: json['jumlah'],
