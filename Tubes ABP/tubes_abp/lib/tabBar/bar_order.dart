@@ -30,11 +30,42 @@ class _OrdersState extends State<Orders> {
                 final groom = snapshot.data;
                 return ListView.builder(
                   itemBuilder: (contect, index) {
-                    return ListTile(
-                      leading: Text(groom![index].produk!),
-                      title: Text(groom[index].jumlah!),
-                      subtitle: Text(groom[index].alamat!),
-                    );
+                    return Container(
+                        child: Card(
+                      elevation: 5,
+                      child: Column(
+                        children: [
+                          Text(groom![index].produk!,
+                              style: blackTextStyle.copyWith(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              textAlign: TextAlign.left),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text("Jumlah : ${groom[index].jumlah}",
+                              style: blackTextStyle.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text("Alamat : ${groom[index].alamat}",
+                              style: blackTextStyle.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.left),
+                        ],
+                      ),
+                    )
+                        // Text(groom![index].produk!),
+                        // Text(groom[index].jumlah!),
+                        // Text(groom[index].alamat!),
+                        );
                   },
                   itemCount: groom!.length,
                 );
