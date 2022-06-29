@@ -1,5 +1,4 @@
 class order {
-  int? id;
   String? produk;
   int? no_telp;
   String? jumlah;
@@ -8,8 +7,7 @@ class order {
   Null? updatedAt;
 
   order(
-      {this.id,
-      this.produk,
+      {this.produk,
       this.no_telp,
       this.jumlah,
       this.alamat,
@@ -18,7 +16,6 @@ class order {
 
   factory order.fromJson(dynamic json) {
     return order(
-        id: json['id'],
         produk: json['produk'],
         no_telp: json['no_telp'],
         jumlah: json['jumlah'],
@@ -28,7 +25,6 @@ class order {
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
         'produk': produk,
         'no_telp': no_telp,
         'jumlah': jumlah,

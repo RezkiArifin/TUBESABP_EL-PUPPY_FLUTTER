@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //   style: optionStyle,
     // ),
     Products(),
-    BarOrder(),
+    Order(),
     BarAccount(),
   ];
 
