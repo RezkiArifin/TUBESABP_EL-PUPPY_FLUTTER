@@ -1,6 +1,6 @@
 class orders {
   String? produk;
-  int? no_telp;
+  String? no_telp;
   String? jumlah;
   String? alamat;
   Null? createdAt;

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../model/orders_model.dart';
 import '../theme.dart';
+import 'package:tubes_abp/Page/alamat.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> {
-  Stream<List<orders>> getOrders() =>
+  Stream<List<orders>> getOrder() =>
       FirebaseFirestore.instance.collection("orders").snapshots().map(
           (event) => event.docs.map((e) => orders.fromJson(e.data())).toList());
 
@@ -23,7 +24,7 @@ class _OrdersState extends State<Orders> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: StreamBuilder<List<orders>>(
-            stream: getOrders(),
+            stream: getOrder(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final groom = snapshot.data;
@@ -32,7 +33,7 @@ class _OrdersState extends State<Orders> {
                     return ListTile(
                       leading: Text(groom![index].produk!),
                       title: Text(groom[index].jumlah!),
-                      subtitle: Text("alamat: ${groom[index].alamat}"),
+                      subtitle: Text(groom[index].alamat!),
                     );
                   },
                   itemCount: groom!.length,
