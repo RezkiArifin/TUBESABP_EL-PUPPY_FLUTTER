@@ -6,6 +6,7 @@ import 'package:tubes_abp/Page/on_boarding.dart';
 import 'package:tubes_abp/Page/order.dart';
 import 'package:tubes_abp/tabBar/bar_home.dart';
 import 'package:tubes_abp/tabBar/bar_account.dart';
+import 'package:tubes_abp/tabBar/bar_order.dart';
 import '../theme.dart';
 
 void main() async {
@@ -53,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //   style: optionStyle,
     // ),
     Products(),
-    History(),
+    BarOrder(),
     BarAccount(),
   ];
 
@@ -70,12 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0,
         iconTheme: IconThemeData(color: Color(0xff1C1D1D)),
         backgroundColor: Colors.white,
-        title: Text(widget.title,
-        style: const TextStyle(
-              color: Color(0xff1C1D1D),
-              fontWeight: FontWeight.w800,
-              fontSize: 16,
-              ),
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            color: Color(0xff1C1D1D),
+            fontWeight: FontWeight.w800,
+            fontSize: 16,
+          ),
         ),
         centerTitle: true,
         actions: [
@@ -86,88 +88,112 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       drawer: Drawer(
-        child: Padding(padding: EdgeInsets.symmetric(vertical: 80.0, horizontal: 20.0),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 80.0, horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                  Row(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                      Navigator.push(  
-                          context,  
-                          MaterialPageRoute(builder: (context) => BarAccount()),  
-                        );
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BarAccount()),
+                      );
                     },
                     child: CircleAvatar(
                       radius: 40.0,
                       backgroundImage: AssetImage('assets/Profile.jpeg'),
                     ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children:[
-                        Text(
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
                         'Amanda Haira',
                         style: blackTextStyle.copyWith(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w100,
-                        ),),
-                        const SizedBox(height: 5.0),
-                        Text('amanda20@gmail.com',
-                        style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: Colors.black)),
-                      ],
-                    ),
-
-                  ],
-                ),
-                const SizedBox(height: 50.0),
-                  Row(
-                    children: [
-                      Icon(Icons.search, color: Colors.black),
-                      const SizedBox(width: 15.0),
-                      Text('Search', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black))
-                    ],
-                  ),
-                  const SizedBox(height: 30.0),
-                  Row(
-                    children: [
-                      Icon(Icons.notifications_none, color: Colors.black),
-                      const SizedBox(width: 15.0),
-                      Text('Notification', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black))
-                    ],
-                  ),
-                  const SizedBox(height: 30.0),
-                  Row(
-                    children: [
-                      Icon(Icons.mail_outline, color: Colors.black),
-                      const SizedBox(width: 15.0),
-                      Text('Message', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black))
-                    ],
-                  ),
-                  const SizedBox(height: 30.0),
-                  Row(
-                    children: [
-                      Icon(Icons.bookmark_border, color: Colors.black),
-                      const SizedBox(width: 15.0),
-                      Text('Bookmark', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black))
-                    ],
-                  ),
-                  const SizedBox(height: 30.0),
-                  Row(
-                    children: [
-                      Icon(Icons.person_outline, color: Colors.black),
-                      const SizedBox(width: 15.0),
-                      Text('Profile', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black))
+                          fontSize: 18,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                      const SizedBox(height: 5.0),
+                      Text('amanda20@gmail.com',
+                          style: TextStyle(
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
                     ],
                   ),
                 ],
               ),
-            ),
+              const SizedBox(height: 50.0),
+              Row(
+                children: [
+                  Icon(Icons.search, color: Colors.black),
+                  const SizedBox(width: 15.0),
+                  Text('Search',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black))
+                ],
+              ),
+              const SizedBox(height: 30.0),
+              Row(
+                children: [
+                  Icon(Icons.notifications_none, color: Colors.black),
+                  const SizedBox(width: 15.0),
+                  Text('Notification',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black))
+                ],
+              ),
+              const SizedBox(height: 30.0),
+              Row(
+                children: [
+                  Icon(Icons.mail_outline, color: Colors.black),
+                  const SizedBox(width: 15.0),
+                  Text('Message',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black))
+                ],
+              ),
+              const SizedBox(height: 30.0),
+              Row(
+                children: [
+                  Icon(Icons.bookmark_border, color: Colors.black),
+                  const SizedBox(width: 15.0),
+                  Text('Bookmark',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black))
+                ],
+              ),
+              const SizedBox(height: 30.0),
+              Row(
+                children: [
+                  Icon(Icons.person_outline, color: Colors.black),
+                  const SizedBox(width: 15.0),
+                  Text('Profile',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black))
+                ],
+              ),
+            ],
+          ),
         ),
+      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -191,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Account',
           ),
         ],
-        currentIndex:  _selectedIndex,
+        currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ), // This trailing comma makes auto-formatting nicer for build methods.

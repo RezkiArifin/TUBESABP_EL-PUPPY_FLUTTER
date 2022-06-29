@@ -15,27 +15,6 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-  // final String url = 'http://127.0.0.1:8000/api/products';
-
-  // final Dio dio = Dio();
-  // List listgrooming = [];
-
-  // getProducts() async {
-  //   var response = await dio.get(url);
-  //   print("dataV = ${response.statusCode}");
-  //   var gromming = response.data as List;
-  //   List<grooming> groomingList =
-  //       gromming.map((e) => grooming.fromJson(e)).toList();
-
-  //   return groomingList;
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getProducts();
-  // }
-
   Stream<List<products>> getGroomings() => FirebaseFirestore.instance
       .collection("products")
       .snapshots()
@@ -46,18 +25,6 @@ class _ProductsState extends State<Products> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        // appBar: AppBar(
-        //   iconTheme: IconThemeData(
-        //     color: Colors.black,
-        //   ),
-        //   elevation: 0,
-        //   backgroundColor: Colors.white,
-        //   centerTitle: true,
-        //   title: Text(
-        //     "Product",
-        //     style: pageTitle,
-        //   ),
-        // ),
         body: StreamBuilder<List<products>>(
             stream: getGroomings(),
             builder: (context, snapshot) {
