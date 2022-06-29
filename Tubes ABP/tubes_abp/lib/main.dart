@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:tubes_abp/Page/on_boarding.dart';
 import 'package:tubes_abp/Page/produk.dart';
 import 'package:tubes_abp/Widget/drawer_widget.dart';
-import 'package:tubes_abp/model/notif_model.dart';
-import 'package:tubes_abp/model/orders_model.dart';
 import 'package:tubes_abp/tabBar/bar_home.dart';
 import 'package:tubes_abp/tabBar/bar_account.dart';
 import 'package:tubes_abp/tabBar/bar_order.dart';
