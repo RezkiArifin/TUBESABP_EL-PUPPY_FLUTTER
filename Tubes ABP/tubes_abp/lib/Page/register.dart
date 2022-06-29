@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_abp/Page/login.dart';
+import 'package:tubes_abp/main.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -11,6 +12,8 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController newpasswordController = TextEditingController();
  
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class _RegisterState extends State<Register> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: TextField(
-                  controller: nameController,
+                  controller: emailController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -74,7 +77,7 @@ class _RegisterState extends State<Register> {
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                   obscureText: true,
-                  controller: passwordController,
+                  controller: newpasswordController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Konfirmasi Password',
@@ -92,8 +95,10 @@ class _RegisterState extends State<Register> {
                     backgroundColor: Color.fromARGB(255, 233, 78, 39)),
                     child: const Text('Register'),
                     onPressed: () {
-                      print(nameController.text);
-                      print(passwordController.text);
+                      Navigator.push(  
+                        context,  
+                        MaterialPageRoute(builder: (context) => MyHomePage(title: 'El Puppy store',)),  
+                      ); 
                     },
                   )
               ),
