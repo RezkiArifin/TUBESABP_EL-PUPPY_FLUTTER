@@ -38,9 +38,6 @@ class _OrderState extends State<Order> {
                           children: [
                             Container(
                               child: Text(groom![index].produk!),
-
-                              // title: Text(groom[index].name!),
-                              // subtitle: Text("Harga: ${groom[index].price}"),
                             ),
                             Expanded(
                               child: Column(
