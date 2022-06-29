@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tubes_abp/Page/alamat.dart';
+import 'package:tubes_abp/Page/order_produk.dart';
 import 'package:tubes_abp/Widget/RattingDanUlasan.dart';
 import '../theme.dart';
 
@@ -152,7 +152,7 @@ class FoodPages2 extends StatelessWidget {
                     child: ElevatedButton(onPressed: () {
                       Navigator.push(  
                         context,  
-                        MaterialPageRoute(builder: (context) => Alamat()),  
+                        MaterialPageRoute(builder: (context) => OrderProduct()),  
                       );
                     }, 
                     child: Text(

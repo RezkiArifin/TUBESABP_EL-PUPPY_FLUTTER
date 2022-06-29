@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
-import 'package:tubes_abp/Page/alamat.dart';
+import 'package:tubes_abp/Page/order_klinik.dart';
+import 'package:tubes_abp/Page/order_produk.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../model/klinik_model.dart';
@@ -106,7 +107,7 @@ class _KlinikState extends State<Klinik> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Alamat()),
+                                          builder: (context) => OrderClinic()),
                                     );
                                   }),
                             )

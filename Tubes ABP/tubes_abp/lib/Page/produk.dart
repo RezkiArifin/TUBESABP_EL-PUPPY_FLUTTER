@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../model/products_model.dart';
 import '../theme.dart';
-import 'alamat.dart';
+import 'order_produk.dart';
 
 class Products extends StatefulWidget {
   const Products({Key? key}) : super(key: key);
@@ -96,7 +96,7 @@ class _ProductsState extends State<Products> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Alamat()),
+                                          builder: (context) => OrderProduct()),
                                     );
                                   }),
                             )

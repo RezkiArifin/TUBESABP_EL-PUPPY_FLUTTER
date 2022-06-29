@@ -3,9 +3,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:tubes_abp/Page/order_grooming.dart';
 import '../model/grooming_model.dart';
 import '../theme.dart';
-import 'alamat.dart';
+import 'order_produk.dart';
 
 class Grooming extends StatefulWidget {
   const Grooming({Key? key}) : super(key: key);
@@ -108,7 +109,7 @@ class _GroomingState extends State<Grooming> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Alamat()),
+                                          builder: (context) => OrderGrooming()),
                                     );
                                   }),
                             )

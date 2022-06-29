@@ -81,12 +81,20 @@ class drawerWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 30.0),
-                Row(
-                  children: [
-                    Icon(Icons.person_outline, color: Colors.black),
-                    const SizedBox(width: 15.0),
-                    Text('Profile', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black))
-                  ],
+                InkWell(
+                    onTap: () {
+                    Navigator.push(  
+                        context,  
+                        MaterialPageRoute(builder: (context) => BarAccount()),  
+                      );
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.person_outline, color: Colors.black),
+                      const SizedBox(width: 15.0),
+                      Text('Profile', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: Colors.black))
+                    ],
+                  ),
                 ),
               ],
             ),

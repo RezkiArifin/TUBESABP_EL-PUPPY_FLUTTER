@@ -1,33 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../theme.dart';
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
-class Alamat extends StatefulWidget {
-  const Alamat({Key? key}) : super(key: key);
+
+class OrderClinic extends StatefulWidget {
+  const OrderClinic({Key? key}) : super(key: key);
 
   @override
-  AlamatState createState() {
-    return AlamatState();
+  OrderClinicState createState() {
+    return OrderClinicState();
   }
 }
 
-class AlamatState extends State<Alamat> {
-  TextEditingController produkController = TextEditingController();
+class OrderClinicState extends State<OrderClinic> {
+  TextEditingController keluhanController = TextEditingController();
   TextEditingController telpController = TextEditingController();
   TextEditingController alamatController = TextEditingController();
-  TextEditingController jumlahController = TextEditingController();
-  String dropdownValue = 'pcs';
+  TextEditingController waktuController = TextEditingController();
+  final format = DateFormat("yyyy-MM-dd HH:mm");
 
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference orders = firestore.collection('orders');
+    CollectionReference order_klinik = firestore.collection('orderKlinik');
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: const Text('Orders',
+        title: const Text('Books',
             style: TextStyle(
               color: Color(0xff1C1D1D),
               fontWeight: FontWeight.w800,
@@ -52,7 +55,7 @@ class AlamatState extends State<Alamat> {
                   height: 24,
                 ),
                 Text(
-                  'Nama Produk',
+                  'Keluhan',
                   style: blackTextStyle.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
@@ -63,7 +66,7 @@ class AlamatState extends State<Alamat> {
                 ),
                 TextField(
                   textAlign: TextAlign.start,
-                  controller: produkController,
+                  controller: keluhanController,
                   decoration: InputDecoration(
                     isDense: true,
                     border: OutlineInputBorder(),
@@ -125,7 +128,7 @@ class AlamatState extends State<Alamat> {
                   height: 24,
                 ),
                 Text(
-                  'Jumlah',
+                  'Waktu Pemesanan',
                   style: blackTextStyle.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
@@ -134,44 +137,30 @@ class AlamatState extends State<Alamat> {
                 const SizedBox(
                   height: 16,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 36,
-                      width: 74,
-                      child: TextField(
-                        controller: jumlahController,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "1",
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    DropdownButton<String>(
-                      value: dropdownValue,
-                      icon: const Icon(Icons.arrow_drop_down),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.black),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownValue = newValue!;
-                        });
+                    Column(
+                      children: <Widget>[
+                    DateTimeField(
+                      controller: waktuController,
+                      format: format,
+                      onShowPicker: (context, currentValue) async {
+                        final date = await showDatePicker(
+                            context: context,
+                            firstDate: DateTime(1900),
+                            initialDate: currentValue ?? DateTime.now(),
+                            lastDate: DateTime(2100));
+                        if (date != null) {
+                          final time = await showTimePicker(
+                            context: context,
+                            initialTime:
+                                TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                          );
+                          return DateTimeField.combine(date, time);
+                        } else {
+                          return currentValue;
+                        }
                       },
-                      items: <String>['pcs', 'box']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
                     ),
-                  ],
-                ),
+                  ]),
                 SizedBox(
                   height: 40,
                 ),
@@ -183,15 +172,15 @@ class AlamatState extends State<Alamat> {
                           backgroundColor: Color.fromARGB(255, 233, 78, 39)),
                       child: const Text('Order'),
                       onPressed: () {
-                        orders.add({
-                          'produk': produkController.text,
+                        order_klinik.add({
+                          'keluhan': keluhanController.text,
                           'no_telp': telpController.text,
                           'alamat': alamatController.text,
-                          'jumlah': jumlahController.text,
+                          'waktu': waktuController.text,
                         });
                         telpController.text = '';
                         alamatController.text = '';
-                        jumlahController.text = '';
+                        waktuController.text = '';
                       },
                     )),
               ],
