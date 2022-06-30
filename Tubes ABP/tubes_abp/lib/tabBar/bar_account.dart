@@ -38,9 +38,9 @@ class _BarAccountState extends State<BarAccount> {
             Text(
               'Amanda Haira',
               style: blackTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: FontWeight.w800,
-            ),
+                fontSize: 18,
+                fontWeight: FontWeight.w800,
+              ),
             ),
             SizedBox(
               width: 5,
@@ -61,32 +61,11 @@ class _BarAccountState extends State<BarAccount> {
             Container(
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 50.0),
                 child: OutlinedButton.icon(
-                  onPressed: () {},
-                  style: OutlinedButton.styleFrom(
-                    fixedSize: const Size(320, 48),
-                  ),
-                  icon: Icon(
-                    Icons.edit,
-                    size: 20,
-                    color: Colors.grey,
-                  ),
-                  label: Text(
-                    "Edit",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                )),
-            Container(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 50.0),
-                child: OutlinedButton.icon(
                   onPressed: () {
-                    Navigator.push(  
-                        context,  
-                        MaterialPageRoute(builder: (context) => Login()),  
-                      );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                    );
                   },
                   style: OutlinedButton.styleFrom(
                     fixedSize: const Size(320, 48),
@@ -105,7 +84,6 @@ class _BarAccountState extends State<BarAccount> {
                     ),
                   ),
                 )),
-                
           ],
         )),
       ),
